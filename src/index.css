@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Epic Game of Thrones Design System */
+@layer base {
+  :root {
+    /* Dark Medieval Palette */
+    --background: 218 12% 7%;
+    --foreground: 45 100% 90%;
+
+    --card: 220 13% 11%;
+    --card-foreground: 45 100% 90%;
+
+    --popover: 220 13% 11%;
+    --popover-foreground: 45 100% 90%;
+
+    /* Royal Gold Primary */
+    --primary: 45 100% 51%;
+    --primary-foreground: 218 12% 7%;
+
+    /* Dark Secondary */
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 45 100% 90%;
+
+    /* Muted Tones */
+    --muted: 220 13% 15%;
+    --muted-foreground: 45 20% 65%;
+
+    /* Dragon Fire Accent */
+    --accent: 0 75% 55%;
+    --accent-foreground: 45 100% 90%;
+
+    /* Ice Blue Destructive */
+    --destructive: 200 100% 45%;
+    --destructive-foreground: 45 100% 90%;
+
+    /* Borders & Inputs */
+    --border: 45 40% 25%;
+    --input: 220 13% 15%;
+    --ring: 45 100% 51%;
+
+    --radius: 0.75rem;
+
+    /* Epic Custom Colors */
+    --targaryen-red: 0 85% 40%;
+    --stark-ice: 200 100% 75%;
+    --lannister-gold: 45 100% 51%;
+    --night-watch: 218 12% 7%;
+    --dragon-fire: 15 100% 55%;
+    --wildfire: 120 100% 35%;
+
+    /* Epic Gradients */
+    --gradient-fire: linear-gradient(135deg, hsl(var(--targaryen-red)), hsl(var(--dragon-fire)));
+    --gradient-ice: linear-gradient(135deg, hsl(var(--stark-ice)), hsl(170 100% 85%));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--lannister-gold)), hsl(45 100% 65%));
+    --gradient-night: linear-gradient(135deg, hsl(var(--night-watch)), hsl(220 13% 15%));
+    --gradient-royal: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+
+    /* Epic Shadows */
+    --shadow-fire: 0 25px 50px -12px hsl(var(--targaryen-red) / 0.4);
+    --shadow-ice: 0 25px 50px -12px hsl(var(--stark-ice) / 0.3);
+    --shadow-gold: 0 25px 50px -12px hsl(var(--lannister-gold) / 0.5);
+    --shadow-epic: 0 35px 70px -15px hsl(var(--primary) / 0.6);
+    --shadow-glow: 0 0 50px hsl(var(--primary) / 0.3);
+
+    /* Epic Animations */
+    --transition-epic: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Typography Scale */
+    --font-display: 'Uncial Antiqua', cursive;
+    --font-title: 'Cinzel', serif;
+    --font-body: 'Marcellus', serif;
+  }
+
+  /* Global Styles */
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--accent) / 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Epic Typography */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-title {
+    font-family: var(--font-title);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Epic Text Effects */
+  .text-fire {
+    background: var(--gradient-fire);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-ice {
+    background: var(--gradient-ice);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.8);
+  }
+
+  /* Epic Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-gold);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-fire);
+  }
+}
+
+@layer components {
+  /* Epic Button Variants */
+  .btn-fire {
+    @apply bg-gradient-to-r from-red-600 to-orange-500 text-white font-title font-semibold px-8 py-4 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-fire border border-red-500/30;
+  }
+
+  .btn-ice {
+    @apply bg-gradient-to-r from-blue-400 to-cyan-300 text-black font-title font-semibold px-8 py-4 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-ice border border-blue-400/30;
+  }
+
+  .btn-gold {
+    @apply bg-gradient-to-r from-yellow-500 to-yellow-400 text-black font-title font-semibold px-8 py-4 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-gold border border-yellow-500/30;
+  }
+
+  .btn-royal {
+    @apply bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-title font-semibold px-8 py-4 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-epic border border-purple-500/30;
+  }
+
+  /* Epic Card Effects */
+  .card-epic {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl p-6 transition-all duration-500 hover:scale-105 hover:shadow-epic hover:border-primary/50;
+  }
+
+  .card-character {
+    @apply bg-gradient-to-br from-card/90 to-card/50 backdrop-blur-xl border border-border/30 rounded-3xl overflow-hidden transition-all duration-700 hover:scale-110 hover:shadow-epic hover:rotate-2;
+  }
+
+  /* Epic Navbar */
+  .navbar-epic {
+    @apply fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border/30;
+  }
+
+  /* Epic Loading Animation */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-4 border-primary/20 border-t-primary;
+  }
+
+  /* Epic Parallax */
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Epic Hover Effects */
+  .hover-glow {
+    @apply transition-all duration-500 hover:shadow-glow hover:scale-105;
+  }
+
+  .hover-float {
+    @apply transition-transform duration-500 hover:-translate-y-2;
+  }
+
+  /* Epic Text Animations */
+  .text-shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Epic Pulse Animation */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary) / 0.4); }
+  }
+}
